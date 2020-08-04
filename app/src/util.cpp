@@ -16,8 +16,6 @@ void parse_arguments(argparse::ArgumentParser &parser, int argc, const char **ar
     parser.add_argument("-m", "--mode")
             .required()
             .help("Mode of this program: encode/decode/encrypt/decrypt");
-    parser.add_argument("-p", "--password")
-            .help("Password for encrypt/decrypt");
 
     try {
         parser.parse_args(argc, argv);
