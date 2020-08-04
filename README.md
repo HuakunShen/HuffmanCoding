@@ -1,6 +1,6 @@
 # Huffman Coding Realization
 
-Implement Huffman Coding Algorithm and compiled into an executable.
+Implement Huffman Coding Algorithm with C++ and compiled into executable files.
 
 ## Usage
 
