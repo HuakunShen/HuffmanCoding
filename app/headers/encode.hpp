@@ -1,6 +1,6 @@
 #pragma once
 
-#include <argparse/argparse.hpp>
+#include <argparse.hpp>
 #include "huffman.hpp"
 
 /**
@@ -12,7 +12,7 @@
     @param fout: out file stream pointer
     @param max_num_byte: max number of byte required to store code
 */
-void writeMetaNodes(EncodeNode* node, std::ofstream* fout);
+void writeMetaNodes(EncodeNode *node, std::ofstream *fout);
 
 
 void encode_main(argparse::ArgumentParser parser);

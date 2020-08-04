@@ -1,23 +1,21 @@
 #include <iostream>
-#include <fstream>
 #include <bitset>
 #include <queue>
 
 #include "encode.hpp"
 #include "huffman.hpp"
 #include "util.hpp"
-#include "encode.hpp"
 
 
 using namespace std;
 
 
-void writeMetaNodes(EncodeNode* node, ofstream* fout) {
+void writeMetaNodes(EncodeNode *node, ofstream *fout) {
     // write current node to file
     char c = node == NULL ? '\0' : !node->isLeaf() ? '\0' : (node->value).c_str()[0];
     bool isNull = node == NULL ? true : false;
     MetaNode metanode(c, isNull);
-    fout->write((char*)(&metanode), sizeof(MetaNode));
+    fout->write((char *) (&metanode), sizeof(MetaNode));
     if (node) {
         writeMetaNodes(node->left, fout);
         writeMetaNodes(node->right, fout);
@@ -93,7 +91,7 @@ void encode_main(argparse::ArgumentParser parser) {
         fin.seekg(0, fin.beg);
         i = 0;
         string write_buf_str = "";
-        
+
         while (i < filesize) {
             i++;
             fin.read(&buffer, 1);
@@ -108,7 +106,7 @@ void encode_main(argparse::ArgumentParser parser) {
             }
         }
         if (write_buf_str.length() > 0) {
-            bitset <8> buf_bits(write_buf_str);
+            bitset<8> buf_bits(write_buf_str);
             char to_write_char = static_cast<unsigned char>(buf_bits.to_ulong());
             to_write_char <<= 8 - write_buf_str.length();
             fout.write(&to_write_char, sizeof(char));

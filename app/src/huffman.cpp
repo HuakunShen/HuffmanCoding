@@ -1,6 +1,5 @@
 #include <string>
 #include <iostream>
-#include <algorithm>
 #include <cmath>
 
 #include "huffman.hpp"
@@ -66,6 +65,7 @@ MetadataHead::MetadataHead(unsigned short num_node, unsigned short num_metanode,
     this->num_metanode = num_metanode;
     this->offset = offset;
 }
+
 MetadataHead::MetadataHead() {
     this->num_node = 0;
     this->num_metanode = 0;
@@ -73,7 +73,7 @@ MetadataHead::MetadataHead() {
 }
 
 
-std::ostream& operator<<(std::ostream& stream, const MetadataHead& a) {
+std::ostream &operator<<(std::ostream &stream, const MetadataHead &a) {
     stream << "num_node: " << a.num_node << ", num_metanode: " << a.num_metanode << ", offset: " << a.offset;
     return stream;
 }
@@ -89,7 +89,7 @@ void free_encode_tree(EncodeNode *node) {
     delete node;
 }
 
-void free_decode_tree(DecodeNode* node) {
+void free_decode_tree(DecodeNode *node) {
     if (!node) return;
     free_decode_tree(node->left);
     free_decode_tree(node->right);

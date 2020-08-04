@@ -1,6 +1,6 @@
 #pragma once
 
-#include <argparse/argparse.hpp>
+#include <argparse.hpp>
 #include "huffman.hpp"
 
 
@@ -9,6 +9,6 @@
     @param fin: ifstream of the file to be read
     @param metanode_left: number of metanode left to read
 */
-DecodeNode* construct_decode_tree(std::ifstream& fin, unsigned short& metanode_left);
+DecodeNode *construct_decode_tree(std::ifstream &fin, unsigned short &metanode_left);
 
 void decode_main(argparse::ArgumentParser parser);

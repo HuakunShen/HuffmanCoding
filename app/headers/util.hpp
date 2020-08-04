@@ -1,6 +1,6 @@
 #pragma once
 
-#include <argparse/argparse.hpp>
+#include <argparse.hpp>
 #include <string>
 #include <sys/stat.h>
 

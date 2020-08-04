@@ -1,13 +1,9 @@
 #pragma once
 
-#include <string>
 #include <map>
+#include <string>
 #include <fstream>
 
-
-// constants
-const unsigned short huffman_code_max_length_bit = 256;
-const unsigned short huffman_code_max_length_byte = huffman_code_max_length_bit / 8;
 
 /**
     Huffman Tree Node
@@ -39,11 +35,13 @@ public:
 */
 struct DecodeNode {
     char c;
-    DecodeNode* left;
-    DecodeNode* right;
+    DecodeNode *left;
+    DecodeNode *right;
 
     DecodeNode();
+
     DecodeNode(char c);
+
     bool isLeaf() {
         return !(left || right);
     }
@@ -57,9 +55,11 @@ struct DecodeNode {
 struct MetaNode {
     char c;
     bool isNull;
+
     MetaNode();
+
     MetaNode(char c, bool isNull);
-    
+
 
     bool operator==(const MetaNode &other);
 
@@ -82,9 +82,11 @@ public:
     unsigned short num_metanode = 0;
     unsigned short offset = 0;               // number of bit offset at the end of the encoded file
     MetadataHead();
+
     MetadataHead(unsigned short num_node, unsigned short num_metanode, unsigned short offset);
 };
-std::ostream& operator<<(std::ostream& stream, const MetadataHead& a);
+
+std::ostream &operator<<(std::ostream &stream, const MetadataHead &a);
 
 /**
     to store in metadata as lookup table
@@ -115,7 +117,7 @@ void free_encode_tree(EncodeNode *node);
     free space of Nodes on heap
     @param node: Huffman Tree DecodeNode
 */
-void free_decode_tree(DecodeNode* node);
+void free_decode_tree(DecodeNode *node);
 
 /**
     generate huffman lookup table (metadata)
