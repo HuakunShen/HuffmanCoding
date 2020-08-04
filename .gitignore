@@ -16,3 +16,5 @@ app/cmake-build-debug/
 app/dependencies/argparse/test/
 
 app/cmake-build-release/huffmancoding.cbp
+
+release/.DS_Store
