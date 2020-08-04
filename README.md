@@ -13,7 +13,6 @@ Optional arguments:
 -i --input      Input filename/address
 -o --output     Output filename/address
 -m --mode       Mode of this program: encode/decode/encrypt/decrypt[Required]
--p --password   Password for encrypt/decrypt
 ```
 
 ## Example
